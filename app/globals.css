@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+ 
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+ 
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+ 
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+ 
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+ 
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+ 
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+ 
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+ 
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+ 
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+ 
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+ 
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+
+
+
+
+
+
+.kayar-yazi-container {
+  width: 100%; /* Konteyner genişliği */
+  height: 40px; /* Konteyner yüksekliği, kayan metnin yüksekliği ile aynı olmalı */
+  overflow: hidden; /* Taşan içeriği gizle */
+  position: relative; /* Pozisyon referansı */
+}
+
+.kayar-yazi {
+  position: absolute;
+  width: 100%;
+  top: 40px; /* İlk `p` etiketinin başlayacağı pozisyon. Konteynerin altında başlar. */
+  animation: kayarYazi 5s linear infinite;
+  
+}
+
+@keyframes kayarYazi {
+  0% {
+    /* Animasyonun başında `p` etiketi konteynerin dibinde olacak */
+    top: 40px; 
+  }
+  10%, 20% {
+    /* Yukarı kaydıktan sonra `top` değeri `0` olmalı ki, metin konteynerin tam içinde olsun */
+    top: 0;
+  }
+  30%, 100% {
+    /* Yukarı doğru kaybolacak şekilde ayarlayın. */
+    /* `top` değerini `p` etiketinin yüksekliği kadar negatif yapın, örneğin `-40px` */
+    top: -40px;
+  }
+}
+
+.box {
+  flex: 3;
+  transition: all 0.5s ease;
+}
+
+.box:hover {
+  flex: 4;
+}
+.carrot {
+  transition: transform 0.3s ease; /* Animasyon için geçiş efektini buraya taşıyın */
+  /* Diğer stil tanımları... */
+  transition: height 1s, width 1s; /* Yumuşak bir geçiş için */
+
+}
+
+.box:hover .carrot {
+  height: 68px; /* Ya da istediğiniz bir değer */
+  width: 68px;  /* İsteğe bağlı genişlik değişikliği */
+
+  
+}
+
+.post-card:hover .post-image {
+  transform: scale(1.05);
+}
+
+
+/* Post detail hero section */
+
+.postdetailhero {
+  overflow: hidden;
+  position: relative;
+  height:calc(50vh + 10px);
+  min-height:200px;
+  background: #ffce54;
+  background: linear-gradient(100deg, #24A4EA, #379DEB 25%, #B76BF0);
+  .w {
+     position: absolute;
+     top:100%;
+     left:-25vw;
+     right:0px;
+     background:url(https://i.koya.io/whitewave2.svg);
+     background-position:center;
+  }
+  .wave {
+     height:200px;
+     transform:translateY(-40px);
+  }
+  .wave2 {
+     height:240px;
+     transform:translateY(-80px);
+     background-size:960px 240px;
+     opacity:0.5;
+     left:-80vw;
+     right:-5vw;
+  }
+  .wave3 {
+     height:220px;
+     transform:translateY(-120px);
+     background-size:880px 220px;
+     opacity:0.33;
+     left:0vw;
+     right:-20vw;
+  }
+  .wave4 {
+     height:280px;
+     transform:translateY(-160px);
+     background-size:1120px 280px;
+     opacity:0.1;
+     left:0vw;
+     right:-40vw;
+  }
+}
+
+
+.navbarIcons{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+.navbarIcons:hover{
+  background-color: palegreen;
+  
+}
+
+
+
+
+
+
+.ProseMirror:focus {
+  outline: none;
+  border-width:0px;
+  
+}
+.border{
+  border-width: 0px;
+}
+
+
+.editor {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  cursor: text;
+  padding: 16px;
+  border-radius: 2px;
+  margin-bottom: 2em;
+  box-shadow: inset 0px 1px 8px -3px #ABABAB;
+  background: #fefefe;
+}
+
+.editor :global(.public-DraftEditor-content) {
+  min-height: 140px;
+}
+
+.headlineButtonWrapper {
+  display: inline-block;
+}
+
+.headlineButton {
+  background: #fbfbfb;
+  color: #888;
+  font-size: 18px;
+  border: 0;
+  padding-top: 5px;
+  vertical-align: bottom;
+  height: 34px;
+  width: 36px;
+}
+
+.headlineButton:hover,
+.headlineButton:focus {
+  background: #f3f3f3;
+}
